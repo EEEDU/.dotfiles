@@ -5,6 +5,7 @@ actualizar(){
 }
 
 instalar(){
+    git clone https://github.com/EEEDU/dotfiles.git
     sudo pacman -S python-pip exa unzip wget zsh
 }
 
@@ -31,6 +32,9 @@ zsh(){
     # plugins
     git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
     git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+    # .zshrc
+    cp -rf dotfiles/.zshrc ~/
+    source .zshrc
 }
 
 pycritty(){
@@ -44,15 +48,26 @@ pycritty(){
     pycritty load Configuracion1
 }
 
-qtile(){
-    
+wallpaper(){
+    git clone https://github.com/antoniosarosi/Wallpapers.git
+    mkdir Imagenes
+    cd Wallpapers/
+    mv 04.jpg ../Imagenes/
+    cd
+    rm -rf Wallpapers/
+    nitrogen Imagenes/
 }
 
+config(){
+    cp -rf dotfiles/.config ~/
+}
  
  
-# actualizar
-# instalar
-# fuentes
-# zsh
+actualizar
+instalar
+fuentes
 pycritty
+wallpaper
+config
 
+zsh

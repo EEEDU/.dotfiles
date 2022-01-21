@@ -37,6 +37,7 @@ zsh(){
     source .zshrc
 }
 
+# ERROR
 pycritty(){
     pip install pycritty
     pip install --install-option="--themes=onedark,dracula,nord" pycritty
@@ -66,7 +67,7 @@ config(){
 actualizar
 instalar
 fuentes
-pycritty
+#pycritty
 wallpaper
 config
 

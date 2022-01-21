@@ -45,9 +45,9 @@ pycritty(){
 }
  
  
-# actualizar
-# instalar
-# fuentes
-# zsh
+actualizar
+instalar
+fuentes
+zsh
 pycritty
 

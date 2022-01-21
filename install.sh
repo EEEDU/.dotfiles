@@ -43,6 +43,16 @@ pycritty(){
     pycritty save Configuracion1
     pycritty load Configuracion1
 }
+
+wallpaper(){
+    git clone https://github.com/antoniosarosi/Wallpapers.git
+    mkdir Imagenes
+    cd Wallpapers/
+    mv 04.jpg ../Imagenes/
+    cd
+    rm -rf Wallpapers/
+    nitrogen Imagenes/
+}
  
  
 actualizar
@@ -50,4 +60,5 @@ instalar
 fuentes
 zsh
 pycritty
+wallpaper
 

@@ -13,33 +13,37 @@ mod = "mod4"
 keys = [Key(key[0], key[1], *key[2:]) for key in [
     # ------------ Window Configs ------------
 
-    # Switch between windows in current stack pane
-    ([mod], "j", lazy.layout.down()),
-    ([mod], "k", lazy.layout.up()),
-    ([mod], "h", lazy.layout.left()),
-    ([mod], "l", lazy.layout.right()),
+    # Cambiar de ventana
+    ([mod], "Right", lazy.layout.right()),
+    ([mod], "Down", lazy.layout.down()),
+    ([mod], "Left", lazy.layout.left()),
+    ([mod], "Up", lazy.layout.up()),
 
-    # Change window sizes (MonadTall)
-    ([mod, "shift"], "l", lazy.layout.grow()),
-    ([mod, "shift"], "h", lazy.layout.shrink()),
+    ([mod], "space", lazy.layout.next()),
 
-    # Toggle floating
+    # Mover ventana
+    ([mod, "shift"], "Left", lazy.layout.shuffle_left()),
+    ([mod, "shift"], "Right", lazy.layout.shuffle_right()),
+    ([mod, "shift"], "Down", lazy.layout.shuffle_down()),
+    ([mod, "shift"], "Up", lazy.layout.shuffle_up()),
+
+    # Crecer ventana
+    ([mod, "control"], "Left", lazy.layout.grow_left()),
+    ([mod, "control"], "Right", lazy.layout.grow_right()),
+    ([mod, "control"], "Down", lazy.layout.grow_down()),
+    ([mod, "control"], "Up", lazy.layout.grow_up()),
+    
+    ([mod], "n", lazy.layout.normalize()),
+
+    # Ventana flotante
     ([mod, "shift"], "f", lazy.window.toggle_floating()),
 
-    # Move windows up or down in current stack
-    ([mod, "shift"], "j", lazy.layout.shuffle_down()),
-    ([mod, "shift"], "k", lazy.layout.shuffle_up()),
-
-    # Toggle between different layouts as defined below
+    # Layout
     ([mod], "Tab", lazy.next_layout()),
     ([mod, "shift"], "Tab", lazy.prev_layout()),
 
-    # Kill window
-    ([mod], "w", lazy.window.kill()),
-
-    # Switch focus of monitors
-    ([mod], "period", lazy.next_screen()),
-    ([mod], "comma", lazy.prev_screen()),
+    # Matar ventana
+    ([mod], "BackSpace", lazy.window.kill()),
 
     # Restart Qtile
     ([mod, "control"], "r", lazy.restart()),
@@ -47,18 +51,18 @@ keys = [Key(key[0], key[1], *key[2:]) for key in [
     ([mod, "control"], "q", lazy.shutdown()),
     ([mod], "r", lazy.spawncmd()),
 
-    # ------------ App Configs ------------
+    # ------------ Aplicaciones ------------
 
     # Menu
     ([mod], "m", lazy.spawn("rofi -show drun")),
 
-    # Window Nav
+    # Windows
     ([mod, "shift"], "m", lazy.spawn("rofi -show")),
 
-    # Browser
+    # Buscador
     ([mod], "b", lazy.spawn("firefox")),
 
-    # File Explorer
+    # Explorador de archivos
     ([mod], "e", lazy.spawn("pcmanfm")),
 
     # Terminal
@@ -68,7 +72,7 @@ keys = [Key(key[0], key[1], *key[2:]) for key in [
     ([mod], "r", lazy.spawn("redshift -O 2400")),
     ([mod, "shift"], "r", lazy.spawn("redshift -x")),
 
-    # Screenshot
+    # Imprimir pantalla
     ([mod], "s", lazy.spawn("scrot")),
     ([mod, "shift"], "s", lazy.spawn("scrot -s")),
 
